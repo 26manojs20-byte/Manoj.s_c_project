@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <conio.h>
+
+void main()
+{
+    FILE *fp;
+    char name[300];
+
+    
+
+    // 1. Writing data into file
+    
+    fp = fopen("manoj.txt", "w");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        
+        return;
+    }
+
+    fprintf(fp, "c program is useful to and interting lanuage.first i cannot be under stand properly .after you come under stand .    i ca");
+
+    fclose(fp);
+
+    printf("Data written successfully\n");
+ 
+
+    // 2. Appending data into file
+    fp = fopen("manoj.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        
+        return;
+    }
+
+    fprintf(fp, "\n c after you com i can under stand properly .i can write coding and under s    and ");
+
+    fclose(fp);
+
+    printf("Data appended successfully\n");
+
+
+    // 3. Reading data from file
+    fp = fopen("manoj.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        return;
+    }
+
+    printf("\nFile Contents:\n");
+
+    while (fgets(name, sizeof(name), fp) != NULL)
+    {
+        printf("%s", name);
+    }
+
+    fclose(fp);
+
+}
